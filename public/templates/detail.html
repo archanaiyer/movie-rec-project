@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="page-header">
+    <h1>
+        {{movie.name}}
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <img ng-if="movie" class="img-responsive" ng-src="//image.tmdb.org/t/p/w780/{{movie.info.backdrop_path}}">
+    </div>
+    <div class="col-md-7" style="font-size:18px;">
+      <div class="row">
+        <div class="col-md-3">
+          Your Rating:
+        </div>
+        <div class="col-md-9">
+          <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id)" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          Genres:
+        </div>
+        <div class="col-md-9">
+          <span ng-repeat="genre in movie.info.genres">
+            {{genre.name}}{{$last ? '' : ', '}}
+          </span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          Release date:
+        </div>
+        <div class="col-md-9">
+          {{movie.info.release_date}}
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          Runtime:
+        </div>
+        <div class="col-md-9">
+          {{movie.info.runtime}} Minutes
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          IMDB:
+        </div>
+        <div class="col-md-9">
+          <a ng-href="http://www.imdb.com/title/{{movie.info.imdb_id}}">{{movie.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-5" style="font-size:18px;">
+      {{movie.info.overview}}
+    </div>
+  </div>
+</div>

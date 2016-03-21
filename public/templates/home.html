@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Movie Recommendations</h1>
+  </div>
+  <div class="row row-centered">
+    <div class="col-md-2" ng-repeat="movie in movies">
+      <div class="row">
+        <div class="movie-title-box">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">{{movie.name}}</a>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+          <img ng-if="movie" width="154px" height="231px" ng-src="{{movie.thumbnail}}"> 
+      </div>
+      <div class="row">
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-default" ng-disabled="movieStartId==1" ng-click="prevMovies()">
+        Previous Movies
+    </button>
+    <button class="btn btn-default" ng-disabled="(movieStartId+movieCount) >= movies_recommended.length" ng-click="nextMovies()">
+      Next Movies
+    </button>
+  </div>
+</div>
