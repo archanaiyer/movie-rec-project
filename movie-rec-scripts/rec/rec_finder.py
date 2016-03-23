@@ -12,10 +12,10 @@ class RecommendationLoader (object):
 		for l in open('model', 'r').readlines():
 			getid = l.split()[0][0]
 			id_  = int(l.split()[0].strip('p').strip('q'))
-			vec =  map(float,l.split()[2:11])	
-			
+			vec =  map(float,l.split()[2:11])
+
 			if getid == 'p':
-				self.u_dict[id_] = vec	
+				self.u_dict[id_] = vec
 			if getid == 'q':
 				self.m_dict[id_] = vec
 
@@ -41,12 +41,12 @@ class RecommendationLoader (object):
 		print "movie_ids: ", recommended_movie_ids[:10]
 
 		return predicted_ratings, recommended_movie_ids
-		
+
 
 	def loadRecommendations(self):
 		for u_id in range(1, 1001):
-			
-		
+
+
 			recommendations= self.getPredictedRatingsForUser(u_id)
 			if not recommendations:
 				continue

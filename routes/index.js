@@ -6,8 +6,8 @@ var passport = require('passport');
 var jwt = require('express-jwt');
 var auth = jwt({secret: 'SECRET STRING here that is shared between index.js and Users.js', userProperty: 'payload'});
 
-var tmdb = require('tmdbv3').init('ENTER YOUR TMDB KEY HERE!');
-var MovieDB = require('moviedb')('ENTER YOUR TMDB KEY HERE!');
+var tmdb = require('tmdbv3').init('26413a5c2f271946e8d6b6f53686e2c9');
+var MovieDB = require('moviedb')('26413a5c2f271946e8d6b6f53686e2c9');
 
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
@@ -93,7 +93,7 @@ var intersection = function(movie_ids, ratings){
 			result.push(movie_ids[i]);
 		}
 	}
-	
+
     return result;
 };
 
@@ -112,8 +112,8 @@ router.get('/movies', auth, function(req, res, next) {
 		if(err) {return next(err);}
 
 		var promises = movies.map(function(movie) {
-			var query = {'movie_id': movie.movie_id, 
-				 'user_id': req.payload.username};	
+			var query = {'movie_id': movie.movie_id,
+				 'user_id': req.payload.username};
 
 			return new Promise(function(resolve, reject) {
 				Rating.findOne(query, getRatingAndInfo(err, movie, req.payload.username, resolve));
@@ -123,7 +123,7 @@ router.get('/movies', auth, function(req, res, next) {
 		Promises.all(promises).then(function(movies_and_ratings_and_info){
 			res.json(movies_and_ratings_and_info);
 		});
-		
+
 	}).limit(count);
 });
 
@@ -135,8 +135,8 @@ router.get('/movies_multi', auth, function(req, res, next) {
 	Movie.find({movie_id: { $in: movie_ids }}, function(err, movies){
 		if(err) {return next(err);}
 		var promises = movies.map(function(movie) {
-			var query = {'movie_id': movie.movie_id, 
-				 'user_id': req.payload.username};	
+			var query = {'movie_id': movie.movie_id,
+				 'user_id': req.payload.username};
 
 			return new Promise(function(resolve, reject) {
 				Rating.findOne(query, getRatingAndInfo(err, movie, req.payload.username, resolve));
@@ -146,7 +146,7 @@ router.get('/movies_multi', auth, function(req, res, next) {
 		Promises.all(promises).then(function(movies_and_ratings_and_info){
 			res.json(movies_and_ratings_and_info);
 		});
-		
+
 	});
 });
 
@@ -184,7 +184,7 @@ router.get('/movies_recommended', auth, function(req, res, next) {
 			recommendations["predicted_ratings"] = [];
 			for(i = 0; i < 1000; i++){
 				recommendations["recommended_movie_ids"][i] = i + 1;
-				recommendations["predicted_ratings"][i] = 0;				
+				recommendations["predicted_ratings"][i] = 0;
 			}
 		}
 
