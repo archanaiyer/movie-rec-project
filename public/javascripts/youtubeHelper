@@ -1,0 +1,15 @@
+// This code loads the iFrame Player API code asynchronously
+var tag = document.createElement('script');
+tag.src = "http://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// This code is called by the YouTube API to create the player object
+function onYouTubeIframeAPIReady(event) {
+  player = new YT.Player('youTubePlayer', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}

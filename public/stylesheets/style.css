@@ -10,3 +10,7 @@ a {
 .movie-title {
     font-size:50px;
 }
+
+#movie-card{
+  margin: 2%;
+}

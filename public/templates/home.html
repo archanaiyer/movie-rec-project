@@ -1,23 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 <div class="container">
   <div class="page-header">
     <h1>Movie Recommendations</h1>
   </div>
-  <div class="row row-centered">
-    <div class="col-md-2" ng-repeat="movie in movies">
-      <div class="row">
+  <iframe id="youTubePlayer" width="420" height="315" src="http://www.youtube.com/embed/l0jCR5t13vA?enablejsapi=1&origin=https://megalytic.com" frameborder="0" allowfullscreen>
+  </iframe>
+  <div class="row row-centered" ng-repeat="movie in movies" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+          <img ng-if="movie" width="154px" height="231px" ng-src="{{movie.thumbnail}}">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
         <div class="movie-title-box">
           <span class="movie-title" style="font-size:18px;">
             <a href="#/movies/{{movie.movie_id}}">{{movie.name}}</a>
           </span>
         </div>
-      </div>
-      <div class="row">
-          <img ng-if="movie" width="154px" height="231px" ng-src="{{movie.thumbnail}}"> 
-      </div>
-      <div class="row">
         <div class="star-rating" ng-controller="RatingCtrl">
           <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
           </rating>
+        </div>
         </div>
       </div>
     </div>
