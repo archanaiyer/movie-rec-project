@@ -1,22 +1,20 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+<link rel="javascript" type="text/js" href="/javascripts/youtubeHelper.js" />
 <div class="container">
   <div class="page-header">
     <h1>Movie Recommendations</h1>
   </div>
-  <iframe id="youTubePlayer" width="420" height="315" src="http://www.youtube.com/embed/l0jCR5t13vA?enablejsapi=1&origin=https://megalytic.com" frameborder="0" allowfullscreen>
-  </iframe>
-  <div class="row row-centered" ng-repeat="movie in movies" id="movie-card">
+
+  <div class="row row-centered" id="movie-card">
     <div class="row" >
       <div class="col-md-6">
-          <img ng-if="movie" width="154px" height="231px" ng-src="{{movie.thumbnail}}">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/KYz2wyBy3kc" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="col-md-6">
         <div class="row">
-        <div class="movie-title-box">
           <span class="movie-title" style="font-size:18px;">
-            <a href="#/movies/{{movie.movie_id}}">{{movie.name}}</a>
+            <a href="#/movies/{{movie.movie_id}}">Toy Story</a>
           </span>
-        </div>
         <div class="star-rating" ng-controller="RatingCtrl">
           <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
           </rating>
@@ -25,6 +23,118 @@
       </div>
     </div>
   </div>
+  <div class="row row-centered" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/5mkm22yO-bs" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">The Jungle Book</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-centered" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/2A-SOVQvPyg" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">Grumpier Old Men</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-centered" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/QGfhS1hfTWw" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">Captain America: Civil War</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-centered" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/jWM0ct-OLsM" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">Zootopia</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-centered" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/KYz2wyBy3kc" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">Toy Story</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row row-centered" ng-repeat="movie in movies" id="movie-card">
+    <div class="row" >
+      <div class="col-md-6">
+      <!-- <iframe width="300" height="200" src="https://www.youtube.com/embed/KYz2wyBy3kc" frameborder="0" allowfullscreen></iframe> -->
+          <img ng-if="movie" width="154px" height="231px" ng-src="{{movie.thumbnail}}">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <span class="movie-title" style="font-size:18px;">
+            <a href="#/movies/{{movie.movie_id}}">{{movie.name}}</a>
+          </span>
+        <div class="star-rating" ng-controller="RatingCtrl">
+          <rating style="font-size:25px; white-space:nowrap;" ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="voteOnMovie(movie.movie_id);" ng-init="rate=movie.predicted_rating">
+          </rating>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="btn-group">
     <button class="btn btn-default" ng-disabled="movieStartId==1" ng-click="prevMovies()">
         Previous Movies

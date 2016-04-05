@@ -13,3 +13,11 @@ function onYouTubeIframeAPIReady(event) {
     }
   });
 }
+var pauseFlag = false;
+function onPlayerReady(event) {
+   // do nothing, no tracking needed
+}
+function onPlayerStateChange(event) {
+    // track when user clicks to Play
+
+}
