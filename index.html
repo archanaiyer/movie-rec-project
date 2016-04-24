@@ -25,8 +25,12 @@
   // ga('create', 'UA-75421601-2', 'auto');
   ga('create', 'UA-76857908-1', 'auto');
   ga('set', '&uid', 'User123');
-  ga('send', 'event', 'Logged In');
   ga('send', 'pageview');
+
+  ga(function(tracker) {
+  var clientId = tracker.get('clientId');
+  console.console.log(clientId);
+});
 
 </script>
 
