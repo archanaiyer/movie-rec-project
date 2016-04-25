@@ -68,6 +68,7 @@ if __name__ == '__main__':
 	base_folder = "/home/ubuntu/golden_movies/data/"
 	base_folder = "/Users/dominik/Desktop/golden_movies/data/"
 	base_folder = "/Users/archanaiyer/Documents/College/Semester4/reco/movie-rec-project/movie-rec-scripts/dbloader"
-	#ml.load10mMovies(base_folder + "/movies.dat")
+	base_folder = "/home/ubuntu/movie-rec-project/movie-rec-scripts/dbloader"
+	ml.load10mMovies(base_folder + "/movies.dat")
 	#ml.load10mRatings(base_folder + "ml-10M100K/ratings.dat")
 	ml.addLinks(base_folder + "/links.csv")

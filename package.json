@@ -21,6 +21,9 @@
     "cookies": "^0.5.1",
     "moviedb": "^0.2.0",
     "promise": "^7.0.4",
-    "tmdbv3": "^0.1.2"
+    "tmdbv3": "^0.1.2",
+    "angulartics": "~1.0.3",
+    "angulartics-google-analytics": "~0.1.4",
+    "angulartics-google-tag-manager": "0.0.1"
   }
 }
