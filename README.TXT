@@ -21,7 +21,7 @@ Run loadmongo.py from movie-rec-scripts/dbloader to load movies and links to tmd
 9. Create a TMDB account and insert the tmdb key in routes/index.js
 
 10. Go to movie-rec-app and run “npm install”
-Then run “node app.js” and visit http://localhost:3000/
+Then run “node app.js” (or nodejs app.js)  and visit http://localhost:3000/
 
 To run in background (on server) use “nohup app.js &”
 
