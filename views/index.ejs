@@ -80,8 +80,9 @@ j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.ins
 <!-- End Google Tag Manager -->
 </head>
 <body ng-app="movieRec" ng-controller="MainCtrl">
+    <button ng-click="globalFoo()">Call global foo</button>
   <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
-      <button ng-click="globalFoo()">Call global foo</button>
+
     <ul class="nav navbar-nav">
       <li ng-show="isLoggedIn()"><a>You're logged in as <b>{{currentUser()}}</b> </a></li>
       <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
