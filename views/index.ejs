@@ -29,7 +29,10 @@
 }
 
 </style>
-<script>
+
+
+<script type="text/javascript">
+// initialize google analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -39,6 +42,24 @@
   // ga('create', 'UA-76857908-1', 'auto');
   // ga('set', '&uid', 'User123');
   ga('send', 'pageview');
+  // end of google analytics
+
+  // initialize googletagmanager
+  var myApp = angular.module('myApp', []);
+
+    myApp.factory('myService', function() {
+        return {
+            foo: function() {
+                alert("I'm foo!");
+            }
+        };
+    });
+
+    myApp.controller('MainCtrl', ['$scope', 'myService', function($scope, myService) {
+        $scope.callFoo = function() {
+            myService.foo();
+        }
+    }]);
 
 </script>
 
@@ -60,6 +81,7 @@ j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.ins
 </head>
 <body ng-app="movieRec" ng-controller="MainCtrl">
   <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+      <button ng-click="globalFoo()">Call global foo</button>
     <ul class="nav navbar-nav">
       <li ng-show="isLoggedIn()"><a>You're logged in as <b>{{currentUser()}}</b> </a></li>
       <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
