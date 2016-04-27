@@ -1,6 +1,8 @@
 // Main client side app.
+require('angulartics')
 
-var app = angular.module('movieRec', ['ui.router', 'ui.bootstrap']);
+var app = angular.module('movieRec', ['ui.router', 'ui.bootstrap',  'angulartics', require('angulartics-google-analytics'),
+require('angulartics-google-tag-manager')]);
 
 app.config([
 // Define which URL should direct to which state and what should happen as the state is entered.

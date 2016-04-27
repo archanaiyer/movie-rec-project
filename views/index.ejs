@@ -41,43 +41,20 @@
   ga('create', 'UA-75421601-2', 'auto');
   // ga('create', 'UA-76857908-1', 'auto');
   // ga('set', '&uid', 'User123');
-  ga('send', 'pageview');
+  //ga('send', 'pageview');
   // end of google analytics
-
-  // initialize googletagmanager
-  var myApp = angular.module('myApp', []);
-
-    myApp.factory('myService', function() {
-        return {
-            foo: function() {
-                alert("I'm foo!");
-            }
-        };
-    });
-
-    myApp.controller('MainCtrl', ['$scope', 'myService', function($scope, myService) {
-        $scope.callFoo = function() {
-            myService.foo();
-        }
-    }]);
-
 </script>
 
 <!-- Google Tag Manager -->
-<noscript>
-<iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQCVND" height="0" width="0" style="display:none;visibility:hidden">
-</iframe>
-</noscript>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-53NWT4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-53NWT4');</script>
+<!-- End Google Tag Manager —>
 
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
-'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-// })(window,document,'script','dataLayer','GTM-5Q98JN');
-})(window,document,'script','dataLayer','GTM-PQCVND');
-</script>
-<!-- End Google Tag Manager -->
 </head>
 <body ng-app="movieRec" ng-controller="MainCtrl">
   <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
