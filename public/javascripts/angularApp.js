@@ -100,17 +100,15 @@ app.config([
          $urlRouterProvider.otherwise('welcome');
 }]);
 
-app.factory('myService', function() {
-    return {
-        foo: function() {
-            alert("I'm foo!");
-        }
-    };
-});
-
 // Factory for handling authentication related requests.
 app.factory('auth', ['$http', '$window', '$state', function($http, $window, $state) {
 	var auth = {};
+
+	return {
+			foo: function() {
+					alert("I'm foo!");
+			}
+	};
 
 	auth.saveToken = function(token) {
 		$window.localStorage['movie-rec-token'] = token;
@@ -236,7 +234,7 @@ function($scope, movies, auth){
 	};
 
 	$scope.callFoo = function() {
-	        myService.foo();
+	        auth.foo();
 	    }
 
 	// Append predicted ratings to currently displayed movies.
