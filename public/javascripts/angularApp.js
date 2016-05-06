@@ -4,7 +4,7 @@ var app = angular.module('movieRec', ['ui.router', 'ui.bootstrap']);
 
 app.config([
 // Define which URL should direct to which state and what should happen as the state is entered.
-	'$stateProvider', 
+	'$stateProvider',
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {
 		$stateProvider
@@ -45,7 +45,7 @@ app.config([
 								movies.movies[i]["predicted_rating"] = movies.predicted_ratings[i];
 							}
 							resolve();
-						}); 
+						});
 					}
 				}
 			})
@@ -163,7 +163,7 @@ app.factory('movies', ['$http', 'auth', function($http, auth){
 		// Array of all the corresponding predicted ratings.
 		predicted_ratings: []
 	};
-	
+
 	// Get the first n movies by movie_id, primarily for dev/debugging purposes.
 	o.getN = function(movieStartId, movieCount) {
     	return $http.get('/movies?movieStartId=' + movieStartId + '&movieCount=' + movieCount, {headers: {Authorization: 'Bearer ' + auth.getToken()}}).success(function(data){
@@ -305,7 +305,7 @@ app.controller('NavCtrl', [
 	}]);
 
 // Controller for star ratings.
-app.controller('RatingCtrl', ['$scope', 'auth', 'movies', 
+app.controller('RatingCtrl', ['$scope', 'auth', 'movies',
 		function ($scope, auth, movies) {
   $scope.rate = 0;
   $scope.max = 5;
@@ -315,3 +315,27 @@ app.controller('RatingCtrl', ['$scope', 'auth', 'movies',
   	movies.voteOnMovie(movie_id, $scope.rate * 2);
   };
 }]);
+
+app.service('gtm', function ($rootScope, $window) {
+    angular.element(document).ready(function () {
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })($window, document, 'script', 'tm', 'GTM-PQCVND');
+        //note: I've changed original code to use $window instead of window
+    });
+
+    // Note: event is used to trigger the GoogleTagManager tracker, but its value is not sent to the server.
+    //      rest of values are sent to server as category, action, label (there's also value if we need it)
+    //      ec -> category, ea -> action, el -> label
+    $rootScope.$on('upgradeMembershipClicked', function (event, data) {
+        if ($window.tm) {
+            $window.tm.push({ event: 'Paywall', ec: 'Paywall', ea: 'Click', el: data.gtmLabel });
+        }
+    });
+}
