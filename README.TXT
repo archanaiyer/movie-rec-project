@@ -10,7 +10,7 @@ sudo chmod 777 /data/db
  Possibly install Robomongo to have a GUI for MongoDB: http://robomongo.org/
 4. To run the Python scripts you will likely need to install additional modules via pip: https://pip.pypa.io/en/stable/installing/
 
-5. Start mongodb 
+5. Start mongodb
 6. First edit the location of movies.dat file in the loadmongo.py file
 Run loadmongo.py from movie-rec-scripts/dbloader to load movies and links to tmdb.
 
@@ -25,10 +25,12 @@ Then run “node app.js” (or nodejs app.js)  and visit http://localhost:3000/
 
 To run in background (on server) use “nohup app.js &”
 
+For google manager and google-analytics:
+- change google analytics code in views/index.ejs
+- change gtm code in views/index and angularApp 
+
 
 To delete a collection in MongoDB:
 shell: mongo
 > use news
 > db.recommendations.drop()
-
-

@@ -34,28 +34,22 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  // NOTE: change google tag here
   ga('create', 'UA-75421601-2', 'auto');
-  // ga('create', 'UA-76857908-1', 'auto');
   // ga('set', '&uid', 'User123');
   ga('send', 'pageview');
   // end of google analytics
 </script>
 <!-- Google Tag Manager -->
 <noscript>
+<!-- NOTE: change google-tag here -->
 <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQCVND" height="0" width="0" style="display:none;visibility:hidden">
 </iframe>
 </noscript>
-
-<!-- <script> -->
-<!-- (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
-'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-// })(window,document,'script','dataLayer','GTM-5Q98JN');
-})(window,document,'script','dataLayer','GTM-PQCVND');
-</script> -->
 <!-- End Google Tag Manager -->
 </head>
+
+<!-- on initialization called google tag manager -->
 <body ng-app="movieRec" ng-controller="MainCtrl" ng-init="gtm()">
   <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl" >
     <ul class="nav navbar-nav">
