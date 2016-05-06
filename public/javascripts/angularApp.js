@@ -100,6 +100,14 @@ app.config([
          $urlRouterProvider.otherwise('welcome');
 }]);
 
+app.factory('myService', function() {
+    return {
+        foo: function() {
+            alert("I'm foo!");
+        }
+    };
+});
+
 // Factory for handling authentication related requests.
 app.factory('auth', ['$http', '$window', '$state', function($http, $window, $state) {
 	var auth = {};
@@ -227,6 +235,10 @@ function($scope, movies, auth){
 		$scope.isLoggedIn = auth.isLoggedIn;
 	};
 
+	$scope.callFoo = function() {
+	        myService.foo();
+	    }
+
 	// Append predicted ratings to currently displayed movies.
 	$scope.addPredictedRatings = function() {
 		for(i = 0; i < $scope.movies.length; i++) {
@@ -315,24 +327,3 @@ app.controller('RatingCtrl', ['$scope', 'auth', 'movies',
   	movies.voteOnMovie(movie_id, $scope.rate * 2);
   };
 }]);
-
-app.service('gtm', function ($rootScope, $window) {
-    angular.element(document).ready(function () {
-				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
-				'gtm.start':new Date().getTime(),event:'gtm.js'});
-				var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-				j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-				// })(window,document,'script','dataLayer','GTM-5Q98JN');
-				})(window,document,'script','dataLayer','GTM-PQCVND');
-        //note: I've changed original code to use $window instead of window
-    });
-
-    // Note: event is used to trigger the GoogleTagManager tracker, but its value is not sent to the server.
-    //      rest of values are sent to server as category, action, label (there's also value if we need it)
-    //      ec -> category, ea -> action, el -> label
-    // $rootScope.$on('upgradeMembershipClicked', function (event, data) {
-    //     if ($window.tm) {
-    //         $window.tm.push({ event: 'Paywall', ec: 'Paywall', ea: 'Click', el: data.gtmLabel });
-    //     }
-    // });
-});
