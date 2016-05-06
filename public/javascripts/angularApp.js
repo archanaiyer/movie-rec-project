@@ -333,9 +333,9 @@ app.service('gtm', function ($rootScope, $window) {
     // Note: event is used to trigger the GoogleTagManager tracker, but its value is not sent to the server.
     //      rest of values are sent to server as category, action, label (there's also value if we need it)
     //      ec -> category, ea -> action, el -> label
-    $rootScope.$on('upgradeMembershipClicked', function (event, data) {
-        if ($window.tm) {
-            $window.tm.push({ event: 'Paywall', ec: 'Paywall', ea: 'Click', el: data.gtmLabel });
-        }
-    });
-}
+    // $rootScope.$on('upgradeMembershipClicked', function (event, data) {
+    //     if ($window.tm) {
+    //         $window.tm.push({ event: 'Paywall', ec: 'Paywall', ea: 'Click', el: data.gtmLabel });
+    //     }
+    // });
+});
