@@ -220,18 +220,19 @@ function($scope, movies, auth){
 	// Number of movies to be displayed. To change also adjust value in resolve statement of home state!
 	$scope.movieCount = 6;
 
+  // loaded google tag manager
+	$scope.gtm = function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
+			'gtm.start':new Date().getTime(),event:'gtm.js'});
+			var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+			j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	}(window,document,'script','dataLayer','GTM-PQCVND');
+
 	// Rate a single movie.
 	$scope.voteOnMovie = function(movie_id, rating) {
 		movies.voteOnMovie(movie_id, rating);
 
 		$scope.isLoggedIn = auth.isLoggedIn;
 	};
-
-	$scope.gtm = function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
-			'gtm.start':new Date().getTime(),event:'gtm.js'});
-			var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-			j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	}(window,document,'script','dataLayer','GTM-PQCVND');
 
 	// Append predicted ratings to currently displayed movies.
 	$scope.addPredictedRatings = function() {
