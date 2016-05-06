@@ -104,12 +104,6 @@ app.config([
 app.factory('auth', ['$http', '$window', '$state', function($http, $window, $state) {
 	var auth = {};
 
-	return {
-			foo: function() {
-					alert("I'm foo!");
-			}
-	};
-
 	auth.saveToken = function(token) {
 		$window.localStorage['movie-rec-token'] = token;
 	};
@@ -233,9 +227,11 @@ function($scope, movies, auth){
 		$scope.isLoggedIn = auth.isLoggedIn;
 	};
 
-	$scope.callFoo = function() {
-	        auth.foo();
-	    }
+	$scope.gtm = function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({
+			'gtm.start':new Date().getTime(),event:'gtm.js'});
+			var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+			j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	}(window,document,'script','dataLayer','GTM-PQCVND');
 
 	// Append predicted ratings to currently displayed movies.
 	$scope.addPredictedRatings = function() {
